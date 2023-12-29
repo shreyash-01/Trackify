@@ -9,7 +9,7 @@ class NikeScraper:
         self.session = HTMLSession()
         self.website = "Nike"
 
-    def scrape(self, url):
+    def scrape(self, url: str) -> Product:
         res = self.session.get(url)
         name = res.html.find('.headline-2.css-16cqcdq', first=True)
         price = res.html.find('.product-price.is--current-price.css-s56yt7.css-xq7tty', first=True)
@@ -21,7 +21,7 @@ class NikeScraper:
 
         return Product(name.text, self.parse_price(price), url, imageurl.attrs.get('src'), time, self.website)
 
-    def parse_price(self, price):
+    def parse_price(self, price) -> int:
         return int("".join(re.findall("[0-9]", price.text))[:-2])
 
 

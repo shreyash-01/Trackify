@@ -9,7 +9,7 @@ class PumaScraper:
         self.session = HTMLSession()
         self.website = "Puma"
 
-    def scrape(self, url):
+    def scrape(self, url: str) -> Product:
         res = self.session.get(url)
         name = res.html.find('h1', first=True)
         price = res.html.find('.whitespace-nowrap.text-base.text-puma-red.font-bold', first=True)
@@ -19,7 +19,7 @@ class PumaScraper:
 
         return Product(name.text, self.parse_price(price.text), url, imageurl.attrs.get('src'), time, self.website)
 
-    def parse_price(self, price: str):
+    def parse_price(self, price: str) -> int:
         return int("".join(re.findall("[0-9]", price)))
 
 
