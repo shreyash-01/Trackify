@@ -19,9 +19,9 @@ class NikeScraper:
         imageurl = res.html.find('img.css-viwop1.css-m5dkrx', first=True)
         time = datetime.datetime.now().strftime("%H:%M:%S, %d %B %Y - %A")
 
-        return Product(name.text, self.parse_price(price), url, imageurl.attrs.get('src'), time, self.website)
+        return Product(name.text, self.parse_price(price.text), url, imageurl.attrs.get('src'), time, self.website)
 
-    def parse_price(self, price) -> int:
-        return int("".join(re.findall("[0-9]", price.text))[:-2])
+    def parse_price(self, price: str) -> int:
+        return int("".join(re.findall("[0-9]", price))[:-2])
 
 
