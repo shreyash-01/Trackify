@@ -15,11 +15,18 @@ export default function Nav(){
                 <div className="hover:font-bold hover:scale-110 cursor-pointer">About</div>
                 <div className="hover:font-bold hover:scale-110 cursor-pointer">Contact Us</div>
                 <div>
+                {!user && 
                 <Link to="/login">
                 <div className="relative bottom-1 hover:font-bold h-9 flex justify-center items-center cursor-pointer hover:bg-white hover:text-black px-4 rounded-lg hover:shadow-md">
                     Sign In
                 </div>
                 </Link>
+                }
+                {user &&
+                <button onClick={handleClick} className="transition h-10 flex items-center justify-center cursor-pointer hover:font-bold text-xl
+               hover:bg-white duration-500 hover:shadow-md hover:text-black w-[100px] rounded-2xl">
+                 Logout</button>
+                }
                 </div>
 
 
