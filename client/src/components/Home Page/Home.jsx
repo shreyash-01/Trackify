@@ -1,4 +1,5 @@
 import Nav from "../Nav/Nav"
+import { Link } from "react-router-dom"
 export default function Home(){
     return(
         <div className="">
@@ -9,7 +10,7 @@ export default function Home(){
                     <div className="font-bold mb-2">Track, Compare</div>
                     <div className="flex mb-2"><div className="font-bold">and Save:</div><div className="ml-2">Your Ultimate</div></div>
                     <div className="">Price Tracker</div>
-                    <div><button className="bg-[#0f056e] font-open-sans text-[1.8rem] mt-5 px-7 py-3 ml-7 rounded-[1rem] hover:scale-110">Get Started</button></div>
+                    <div><Link to="/search"><button className="bg-[#0f056e] font-open-sans text-[1.8rem] mt-5 px-7 py-3 ml-7 rounded-[1rem] hover:scale-110">Get Started</button></Link></div>
                 </div>
 
             </div>
