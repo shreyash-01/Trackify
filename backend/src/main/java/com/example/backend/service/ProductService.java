@@ -12,11 +12,11 @@ public class ProductService {
         return null;
     }
 
-    public Product getProductByID(int id){
+    public Product getProductByID(String id){
         return null;
     }
 
-    public Product deleteProduct(int id){
+    public Product deleteProduct(String id){
         return null;
     }
 

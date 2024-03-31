@@ -1,13 +1,9 @@
 package com.example.backend.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@Document(collation = "products")
 public class Product {
-    @Id
     private int ID;
     private String name;
     private String URL;
