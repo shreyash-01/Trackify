@@ -1,25 +1,29 @@
 package com.example.backend.model;
 
 
-import java.time.LocalDateTime;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+
+@Document(collection = "Products")
 public class Product {
-    private int ID;
+    @Id
+    private String ID;
     private String name;
     private String URL;
-    private String imageURL;
+    private String imageurl;
     private String website;
-    private LocalDateTime dateTime;
+    private String time;
     private int price;
 
 
-    public Product(int ID, String name, String URL, String imageURL, String website, LocalDateTime dateTime, int price) {
+    public Product(String ID, String name, String URL, String imageurl, String website, String time, int price) {
         this.ID = ID;
         this.name = name;
         this.URL = URL;
-        this.imageURL = imageURL;
+        this.imageurl = imageurl;
         this.website = website;
-        this.dateTime = dateTime;
+        this.time = time;
         this.price = price;
     }
 
@@ -39,12 +43,12 @@ public class Product {
         this.URL = URL;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getimageurl() {
+        return imageurl;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setimageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
     public String getWebsite() {
@@ -55,12 +59,12 @@ public class Product {
         this.website = website;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public String gettime() {
+        return time;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void settime(String time) {
+        this.time = time;
     }
 
     public int getPrice() {
@@ -71,11 +75,11 @@ public class Product {
         this.price = price;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -85,9 +89,9 @@ public class Product {
                 "ID=" + ID +
                 ", name='" + name + '\'' +
                 ", URL='" + URL + '\'' +
-                ", imageURL='" + imageURL + '\'' +
+                ", imageurl='" + imageurl + '\'' +
                 ", website='" + website + '\'' +
-                ", dateTime=" + dateTime +
+                ", time=" + time +
                 ", price=" + price +
                 '}';
     }

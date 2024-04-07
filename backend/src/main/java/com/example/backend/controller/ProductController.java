@@ -1,6 +1,8 @@
 package com.example.backend.controller;
 
+import com.example.backend.model.Data;
 import com.example.backend.model.Product;
+import com.example.backend.repository.ProductRepository;
 import com.example.backend.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("")
 public class ProductController {
 
     private ProductService productService;
@@ -37,8 +39,8 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public ResponseEntity<Product> createProductController(@RequestBody Product product){
-        productService.createProduct(product);
+    public ResponseEntity<Product> createProductController(@RequestBody Data data){
+        Product product = productService.createProduct(data);
         return new ResponseEntity<>(product, HttpStatus.CREATED);
     }
 
