@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import Nav from "../Nav/Nav"
 import { Link } from "react-router-dom"
 export default function Home(){
+    useEffect(() => {
+        document.title = "Trackify | Home";
+      }, []); 
     return(
         <div className="">
             
@@ -17,6 +21,10 @@ export default function Home(){
             <div class="relative overflow-hidden flex flex-col items-center">
          
                 <div className="mt-4 text-[2.25rem] font-roboto-condensed text-black relative right-6">Supported Websites</div>
+
+                <div className="flex">
+                    <div className="bg-nike"></div>
+                 </div>
             </div>
                 
 
