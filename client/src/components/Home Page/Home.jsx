@@ -1,10 +1,6 @@
-import { useEffect } from "react";
 import Nav from "../Nav/Nav"
 import { Link } from "react-router-dom"
 export default function Home(){
-    useEffect(() => {
-        document.title = "Trackify | Home";
-      }, []); 
     return(
         <div className="">
             
@@ -20,11 +16,16 @@ export default function Home(){
             </div>
             <div class="relative overflow-hidden flex flex-col items-center">
          
-                <div className="mt-4 text-[2.25rem] font-roboto-condensed text-black relative right-6">Supported Websites</div>
+                <div className="mt-4 text-[2.5rem]  font-roboto-condensed text-black relative right-6">Supported Websites</div>
 
-                <div className="flex">
-                    <div className="bg-nike"></div>
-                 </div>
+                <div className="flex items-center w-full mt-8">
+                    {/* <div className="bg-nike bg-cover bg-no-repeat h-[12vw] w-[20vw]">dfdf</div> */}
+                    <img src="nike.jpg" className="ml-[8vw] h-[5vw] w-[10vw]" alt="Nike"></img>
+                    <img src="adidas.jpg" className="ml-[8vw] h-[6vw] w-[10vw]" alt="Adidas"></img>
+                    <img src="puma.jpg" className="ml-[8vw] h-[6vw] w-[10vw]" alt="Puma"></img>
+                    <img src="nykaa.jpg" className="ml-[8vw] h-[4vw] w-[10vw]" alt="Nykaa"></img>
+                    <img src="snitch.jpg" className="ml-[8vw] h-[8vw] w-[11vw]" alt="Snitch"></img>
+                </div>
             </div>
                 
 
