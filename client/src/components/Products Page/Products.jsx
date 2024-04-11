@@ -44,9 +44,7 @@ export default function Products(){
         // };
       }, []);
 
-      const handleClick=(productId)=>{
-
-      }
+      
 
     
 
@@ -57,7 +55,7 @@ export default function Products(){
             
             <div className="flex flex-wrap justify-left">
                 {data.map((product, index) => (
-                    <Link to={`/products/${product.id}`} className="flex flex-col items-center justify-start w-[23vw] h-[25vw] border border-gray-300 rounded-lg ml-6 mt-6 hover:scale-110 cursor-pointer" key={index}>
+                    <Link to={`/products/${product.id}`} className="flex flex-col items-center justify-start w-[23vw] h-[25vw] border border-gray-300 rounded-lg ml-6 mt-6 hover:scale-105 cursor-pointer" key={index}>
                         
                         <div style={{ backgroundImage: `url(${product.imageurl})` }} className="rounded-lg bg-cover bg-center w-full h-full"></div>
 

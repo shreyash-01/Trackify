@@ -13,7 +13,7 @@ export default function Nav(){
 
     useEffect(() => {
         // Check the current URL pathname and set the bgClass accordingly
-        if (location.pathname === '/products') {
+        if (location.pathname === '/products' || '/search') {
           setBgClass('bg-[#1b4eb0] h-[5vw]');
         } else {
           setBgClass('');
@@ -22,9 +22,9 @@ export default function Nav(){
     return(
         <div className={`flex justify-between text-white ${bgClass}`}>
 
-            <div className="flex basis-1/2 justify-between ml-7 mt-4 font-oswald text-4xl cursor-pointer"><Link to="/">Trackify</Link></div>
-            <div className="basis-1/2 flex justify-between mr-[5vw] mt-7 font-open-sans text-xl font-bold">
-                <div className="hover:font-bold hover:scale-110 cursor-pointer">Products</div>
+            <div className="flex basis-1/2 justify-between ml-7 mt-3 font-oswald text-5xl cursor-pointer"><Link to="/">Trackify</Link></div>
+            <div className="basis-1/2 flex justify-between mr-[5vw] mt-7 font-open-sans text-[1.3vw] font-bold">
+                <div className="hover:font-bold hover:scale-110 cursor-pointer"><Link to="/products">Products</Link></div>
                 <div className="hover:font-bold hover:scale-110 cursor-pointer">About</div>
                 <div className="hover:font-bold hover:scale-110 cursor-pointer">Contact Us</div>
                 <div>

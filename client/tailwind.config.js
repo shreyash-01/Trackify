@@ -13,7 +13,7 @@ module.exports = {
       },
       backgroundImage:{
         'login':"url('./assets/login-page.png')",
-        'nike':"url('./assets/nike.png')",
+        'nike':"url('./assets/images/nike.jpg')",
       }
 
     },
