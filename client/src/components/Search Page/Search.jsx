@@ -8,10 +8,11 @@ export default function Search(){
             <div className="bg-[#1b4eb0] h-[20vw] w-[50vw] flex flex-col rounded-xl shadow-2xl justify-center">
                 <div className="flex ml-20"> 
                 <select id="company" className="h-[2.5vw] w-[6vw] text-[1.2vw] rounded-lg cursor-pointer font-ubuntu outline-none">
-                    <option value="volvo" className="cursor-pointer">Volvo</option>
-                    <option value="saab" className="cursor-pointer">Saab</option>
-                    <option value="fiat" className="cursor-pointer">Fiat</option>
-                    <option value="audi" className="cursor-pointer">Audi</option>
+                    <option value="volvo" className="cursor-pointer">Nike</option>
+                    <option value="saab" className="cursor-pointer">Puma</option>
+                    <option value="fiat" className="cursor-pointer">Snitch</option>
+                    <option value="audi" className="cursor-pointer">Nykaa</option>
+                    <option value="audi" className="cursor-pointer">Adidas</option>
                 </select>
                 </div>
                 
