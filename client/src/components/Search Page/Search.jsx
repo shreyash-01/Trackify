@@ -70,11 +70,12 @@ export default function Search(){
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center h-[40vw]">
             <motion.div initial={{ scale: 0.92, opacity:0 }} animate={{ scale: 1, opacity:1 }} transition={{ type: "spring", duration: 0.7 }} className="bg-[#1b4eb0] h-[20vw] w-[50vw] flex flex-col rounded-xl shadow-2xl justify-center">
                 <div className="flex ml-20"> 
-                <select id="company" className="h-[2.5vw] w-[7vw] text-[1.2vw] rounded-lg cursor-pointer font-lato outline-none" name="website" onChange={handleChange}>
-                    <option value="volvo" className="cursor-pointer">Volvo</option>
-                    <option value="saab" className="cursor-pointer">Saab</option>
-                    <option value="fiat" className="cursor-pointer">Fiat</option>
-                    <option value="audi" className="cursor-pointer">Audi</option>
+                <select id="company" className="h-[2.5vw] w-[6vw] text-[1.2vw] rounded-lg cursor-pointer font-ubuntu outline-none">
+                    <option value="volvo" className="cursor-pointer">Nike</option>
+                    <option value="saab" className="cursor-pointer">Puma</option>
+                    <option value="fiat" className="cursor-pointer">Snitch</option>
+                    <option value="audi" className="cursor-pointer">Nykaa</option>
+                    <option value="audi" className="cursor-pointer">Adidas</option>
                 </select>
                 </div>
                 

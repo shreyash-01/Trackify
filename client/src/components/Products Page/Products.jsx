@@ -11,12 +11,15 @@ export default function Products(){
             
             
             axios.get('http://localhost:8081/products')
-            .then((response) => {               
+            .then((response) => {
+
                 const json=response.data;
                 if (response.status === 200) {
                     console.log(json);
                     setData(json);
                     // setSearchResponse(json.searchResults);
+
+
                 }
                 else{
                     // Handle errors here
@@ -52,12 +55,13 @@ export default function Products(){
             
             <div className="flex flex-wrap justify-left">
                 {data.map((product, index) => (
-                    <Link to={`/products/${product.id}`} className="flex flex-col items-center justify-start w-[17vw] h-[17vw] border border-gray-300 rounded-lg ml-6 mt-6 hover:scale-110 cursor-pointer" key={index}>
+                    <Link to={`/products/${product.id}`} className="flex flex-col items-center justify-start w-[23vw] h-[25vw] border border-gray-300 rounded-lg ml-6 mt-6 hover:scale-110 cursor-pointer" key={index}>
                         
                         <div style={{ backgroundImage: `url(${product.imageurl})` }} className="rounded-lg bg-cover bg-center w-full h-full"></div>
-                        
-                                 
-                        <p className="mt-2 text-center font-lato font-bold">{product.name}</p>
+
+                        <p className=" text-center font-lato font-extrabold text-xl">{product.website}</p>
+                        <p className=" text-center font-lato font-normal text-lg">{product.name}</p>
+                        <p className=" text-center font-lato  text-base">Rs. {product.price}</p>
                        
                     </Link>
                 ))}

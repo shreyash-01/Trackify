@@ -2,7 +2,6 @@ package com.example.backend.controller;
 
 import com.example.backend.model.Data;
 import com.example.backend.model.Product;
-import com.example.backend.repository.ProductRepository;
 import com.example.backend.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,8 +46,8 @@ public class ProductController {
 
     @DeleteMapping("/products/{id}")
     public ResponseEntity<Product> deleteProductController(@PathVariable String id){
-        Product product = productService.deleteProduct(id);
-        return new ResponseEntity<>(product, HttpStatus.OK);
+        productService.deleteProduct(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

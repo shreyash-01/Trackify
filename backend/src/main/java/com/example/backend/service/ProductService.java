@@ -26,11 +26,11 @@ public class ProductService {
     }
 
     public Product getProductByID(String id){
-        return null;
+        return productRepository.findById(id).get();
     }
 
-    public Product deleteProduct(String id){
-        return null;
+    public void deleteProduct(String id){
+        productRepository.deleteById(id);
     }
 
     public Product createProduct(Data data){
