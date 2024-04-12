@@ -28,6 +28,8 @@ export default function Search(){
 
     const handleClick=()=>{
         const data=searchData;
+        console.log(data);
+        setSearchData({"url":'',"website":''});
         axios.get('http://localhost:8081/search', data)
             .then((response) => {               
                 const json=response.data;
@@ -70,17 +72,18 @@ export default function Search(){
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center h-[40vw]">
             <motion.div initial={{ scale: 0.92, opacity:0 }} animate={{ scale: 1, opacity:1 }} transition={{ type: "spring", duration: 0.7 }} className="bg-[#1b4eb0] h-[20vw] w-[50vw] flex flex-col rounded-xl shadow-2xl justify-center">
                 <div className="flex ml-20"> 
-                <select id="company" className="h-[2.5vw] w-[6vw] text-[1.2vw] rounded-lg cursor-pointer font-ubuntu outline-none">
-                    <option value="volvo" className="cursor-pointer">Nike</option>
-                    <option value="saab" className="cursor-pointer">Puma</option>
-                    <option value="fiat" className="cursor-pointer">Snitch</option>
-                    <option value="audi" className="cursor-pointer">Nykaa</option>
-                    <option value="audi" className="cursor-pointer">Adidas</option>
+                <select id="company" className="h-[2.5vw] w-[6vw] text-[1.2vw] rounded-lg cursor-pointer font-ubuntu outline-none" name="website" value={searchData.website} onChange={handleChange}>
+                    <option value="">Select a website</option>
+                    <option value="nike" className="cursor-pointer">Nike</option>
+                    <option value="puma" className="cursor-pointer">Puma</option>
+                    <option value="snitch" className="cursor-pointer">Snitch</option>
+                    <option value="nykaa" className="cursor-pointer">Nykaa</option>
+                    <option value="adidas" className="cursor-pointer">Adidas</option>
                 </select>
                 </div>
                 
                 <div className="flex justify-center">
-                    <input type="text" className="mt-7  w-[40vw] h-[3vw] rounded-[0.5rem] text-xl outline-none pl-3 pr-2 font-lato" placeholder="Enter URL" name="url" onChange={handleChange}></input>
+                    <input type="text" className="mt-7  w-[40vw] h-[3vw] rounded-[0.5rem] text-xl outline-none pl-3 pr-2 font-lato" placeholder="Enter URL" name="url" value={searchData.url} onChange={handleChange}></input>
                 </div>
                 <div className="flex justify-center relative right-10 mt-7">
                     <button className="bg-[#0f056e] font-open-sans text-[1.3vw] text-white mt-5 px-10 py-2 ml-7 rounded-[0.5rem] hover:scale-110" onClick={handleClick}>Find</button>
