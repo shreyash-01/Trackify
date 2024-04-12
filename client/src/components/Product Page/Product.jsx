@@ -45,7 +45,8 @@ export default function Product(){
                 <div className="flex justify-start">
                     <img src={responseData.imageurl} alt="Product Image" className="h-[35vw] mt-[4vw] ml-10"></img>
                     <div className="flex flex-col font-lato justify-start ml-[12vw]">
-                        <div className="text-3xl font-bold mt-[5vw]">{responseData.name}</div>
+                        <div className="text-6xl font-bold mt-[4vw]">{responseData.website}</div>
+                        <div className="text-3xl font-bold mt-[1vw]">{responseData.name}</div>
                         <div className="text-2xl mt-[0.7vw]">Rs. {responseData.price}</div>
                         <button className="bg-[#0f056e] text-xl text-white mt-[8vw] w-[12vw] px-2 py-2 rounded-[0.5rem] hover:scale-110">Check</button>
                         <div className="text-md mt-[1vw]">Last Checked at: {responseData.time}</div>

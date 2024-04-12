@@ -32,17 +32,17 @@ public class ProductWebClient {
         return productResponse;
     }
 
-//    public Product checkPriceDatabase(String url){
-//        return productRepository.findOne();
-//    }
+    public Product checkPriceDatabase(String id){
+        return productRepository.findById(id).get();
+    }
 
-//    public String sendEmailPriceDrop(Product product){
-//        RestTemplate restTemplate = new RestTemplate();
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON);
-//        HttpEntity<Product> request = new HttpEntity<>(product, headers);
-//        String productResponse = restTemplate.postForObject("http://localhost:8081/mail/send/", request, String.class);
-//
-//        return productResponse;
-//    }
+    public String sendEmailPriceDrop(Product product){
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Product> request = new HttpEntity<>(product, headers);
+        String productResponse = restTemplate.postForObject("http://localhost:8081/mail", request, String.class);
+
+        return productResponse;
+    }
 }

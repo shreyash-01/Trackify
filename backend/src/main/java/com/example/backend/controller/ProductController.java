@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.model.Mail;
 import com.example.backend.model.Data;
 import com.example.backend.model.Product;
 import com.example.backend.service.ProductService;
@@ -32,7 +33,7 @@ public class ProductController {
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
-    @PutMapping("/products/")
+    @PutMapping("/products")
     public ResponseEntity<Product> updateProductController(@RequestBody Product product){
         productService.updateProduct(product);
         return new ResponseEntity<>(product, HttpStatus.OK);
@@ -41,13 +42,21 @@ public class ProductController {
     @PostMapping("/products")
     public ResponseEntity<Product> createProductController(@RequestBody Data data){
         Product product = productService.createProduct(data);
-        return new ResponseEntity<>(product, HttpStatus.CREATED);
+        return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
     @DeleteMapping("/products/{id}")
     public ResponseEntity<Product> deleteProductController(@PathVariable String id){
         productService.deleteProduct(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+
+    @PostMapping("/mail")
+    public String sendMail(@RequestBody Product product){
+        productService.sendMail(new Mail(product));
+        return "Successful";
     }
 
 }

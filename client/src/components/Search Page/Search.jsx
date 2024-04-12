@@ -30,9 +30,10 @@ export default function Search(){
         const data=searchData;
         console.log(data);
         setSearchData({"url":'',"website":''});
-        axios.get('http://localhost:8081/search', data)
+        axios.post('http://localhost:8081/products', data)
             .then((response) => {               
                 const json=response.data;
+                console.log(json)
                 if (response.status === 200) {
                     console.log(json);
                     
