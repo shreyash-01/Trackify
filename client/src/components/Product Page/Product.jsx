@@ -34,8 +34,38 @@ export default function Product(){
           
         }
         fetchData();
+        
+        if(responseData){
+            document.title=responseData.name;
+        }
     
     }, [data]);
+
+
+    const handleClick=()=>{
+        axios.put('http://localhost:8081/products', responseData)
+            .then((response) => {               
+                const json=response.data;
+                if (response.status === 200) {
+                    console.log(json);
+                    setResponseData(json);
+                
+                }
+                else{
+                    // Handle errors here
+                    console.error('Request failed');
+                    // setError(response.data.error)
+                    
+                }                
+            })
+                
+            .catch((error) => {
+                console.error(error.response.data.error);
+               
+                
+            });
+
+    }
 
 
     return(
@@ -48,7 +78,7 @@ export default function Product(){
                         <div className="text-6xl font-bold mt-[4vw]">{responseData.website}</div>
                         <div className="text-3xl font-bold mt-[1vw]">{responseData.name}</div>
                         <div className="text-2xl mt-[0.7vw]">Rs. {responseData.price}</div>
-                        <button className="bg-[#0f056e] text-xl text-white mt-[8vw] w-[12vw] px-2 py-2 rounded-[0.5rem] hover:scale-110">Check</button>
+                        <button className="bg-[#0f056e] text-xl text-white mt-[8vw] w-[12vw] px-2 py-2 rounded-[0.5rem] hover:scale-110" onClick={handleClick}>Check</button>
                         <div className="text-md mt-[1vw]">Last Checked at: {responseData.time}</div>
                     </div>
 
