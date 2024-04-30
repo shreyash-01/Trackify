@@ -1,6 +1,6 @@
-import datetime
 from requests_html import HTMLSession
 from Product import Product
+from Time import get_time
 import re
 
 
@@ -15,7 +15,7 @@ class SnitchScraper:
         price = res.html.find('.product__price', first=True)
         url = url
         imageurl = res.html.find('.photoswipe__image.image-element', first=True)
-        time = datetime.datetime.now().strftime("%H:%M:%S, %d %B %Y - %A")
+        time = get_time()
 
         return Product(name.text, self.parse_price(price.text), url, "https:"+imageurl.attrs.get('src'), time, self.website)
 

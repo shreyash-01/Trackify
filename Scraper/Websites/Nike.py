@@ -1,6 +1,6 @@
-import datetime
 from requests_html import HTMLSession
 from Product import Product
+from Time import get_time
 import re
 
 
@@ -17,7 +17,7 @@ class NikeScraper:
             price = res.html.find('.product-price.css-11s12ax.is--current-price.css-tpaepq', first=True)
         url = url
         imageurl = res.html.find('img.css-viwop1.css-m5dkrx', first=True)
-        time = datetime.datetime.now().strftime("%H:%M:%S, %d %B %Y - %A")
+        time = get_time()
 
         return Product(name.text, self.parse_price(price.text), url, imageurl.attrs.get('src'), time, self.website)
 
