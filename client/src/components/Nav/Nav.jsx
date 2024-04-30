@@ -51,23 +51,23 @@ export default function Nav(){
             
             <div className='large:hidden small:mr-5 small:mt-3'>
               <button onClick={toggleLinks} className="text-white font-open-sans p-2 text-sm h-auto w-auto rounded-md bg-[#0f056e]">
-                  {showLinks ? 'Hide' : 'Show'}
+                  {showLinks ? 'Menu' : 'Menu'}
               </button>
 
               {showLinks &&
-                <div className='flex flex-col absolute right-10 bg-white shadow-md text-black'>
-                  <div className="hover:font-bold hover:scale-110 cursor-pointer"><Link to="/products">Products</Link></div>
-                  <div className="hover:font-bold hover:scale-110 cursor-pointer">About</div>
-                  <div className="hover:font-bold hover:scale-110 cursor-pointer">Contact Us</div>
+                <div className='flex flex-col absolute right-10 bg-white rounded-md px-3 shadow-xl text-black'>
+                  <div className="hover:font-bold hover:scale-110 active:bg-[#7e7b7b] cursor-pointer mt-2 border-b-2"><Link to="/products">Products</Link></div>
+                  <div className="hover:font-bold hover:scale-110 cursor-pointer mt-2 border-b-2">About</div>
+                  <div className="hover:font-bold hover:scale-110 cursor-pointer mt-2 border-b-2">Contact Us</div>
                   {!user && (
                     <Link to="/login">
-                      <div className="relative bottom-1 hover:font-bold hover:scale-110 h-9 flex items-center cursor-pointer bg-[] hover:bg-white hover:text-black px-4 rounded-lg hover:shadow-md">
+                      <div className="mt-2 active:bg-[#5b5959] relative bottom-1 mb-2 flex items-center hover:bg-white hover:text-black rounded-lg hover:shadow-md">
                         Sign In
                       </div>
                     </Link>
                   )}
                   {user && (
-                    <button onClick={handleClick} className="transition h-10 flex items-center justify-center cursor-pointer hover:font-bold text-xl hover:bg-white duration-500 hover:shadow-md hover:text-black w-[100px] rounded-2xl">
+                    <button onClick={handleClick} className="mt-2 active:bg-[#575555] transition h-10 flex items-center justify-center cursor-pointer hover:font-bold text-xl hover:bg-white duration-500 hover:shadow-md hover:text-black w-[100px] rounded-2xl">
                       Logout
                     </button>
                   )}
