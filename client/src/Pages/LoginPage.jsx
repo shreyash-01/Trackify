@@ -6,7 +6,7 @@ export default function LoginPage(){
         document.title = "Trackify | Login";
       }, []);
     return(
-        <div className="w-screen h-screen">
+        <div className="">
             <Login />
         </div>
     )
