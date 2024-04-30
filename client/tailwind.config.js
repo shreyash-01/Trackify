@@ -3,6 +3,10 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
+      screens:{
+        'small': { 'max': '639px' },
+        'large': { 'min': '640px' },
+      },
       fontFamily:{
         'fira': ['Fira Sans', 'sans-serif'],
         'lato': ['Lato', 'sans-serif'],
