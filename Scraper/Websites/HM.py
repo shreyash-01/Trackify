@@ -1,6 +1,7 @@
-import datetime
 from requests_html import HTMLSession
 from Product import Product
+from Time import get_time
+
 import re
 
 
@@ -15,7 +16,7 @@ class HMScraper:
         price = res.html.find('.price-value', first=True)
         url = url
         imageurl = res.html.find('img')
-        time = datetime.datetime.now().strftime("%H:%M:%S, %d %B %Y - %A")
+        time = get_time()
 
         return Product(name.text, self.parse_price(price.text), url, "https:"+imageurl[1].attrs.get('src'), time, self.website)
 

@@ -12,7 +12,7 @@ export default function Search(){
         hidden: { opacity: 0, transition: { duration: 0.5, delay: 3 } }
     };
 
-    const [searchData, setSearchData]=useState({"url":'',"website":'volvo' });
+    const [searchData, setSearchData]=useState({"url":'',"website":'' });
     const navigate=useNavigate();
 
 
@@ -79,7 +79,8 @@ export default function Search(){
                     <option value="puma" className="cursor-pointer">Puma</option>
                     <option value="snitch" className="cursor-pointer">Snitch</option>
                     <option value="nykaa" className="cursor-pointer">Nykaa</option>
-                    <option value="adidas" className="cursor-pointer">Adidas</option>
+                    <option value="flipkart" className="cursor-pointer">Flipkart</option>
+                    <option value="h&m" className="cursor-pointer">H&M</option>
                 </select>
                 </div>
                 

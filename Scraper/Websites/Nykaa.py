@@ -1,6 +1,6 @@
-import datetime
 from requests_html import HTMLSession
 from Product import Product
+from Time import get_time
 import re
 
 
@@ -15,7 +15,7 @@ class NykaaScraper:
         price = res.html.find('.css-1jczs19', first=True)
         url = url
         imageurl = res.html.find('img[alt="product-thumbnail"]', first=True)
-        time = datetime.datetime.now().strftime("%H:%M:%S, %d %B %Y - %A")
+        time = get_time()
 
         return Product(name.text.split('\n')[0], self.parse_price(price.text), url, imageurl.attrs.get('src'), time, self.website)
 

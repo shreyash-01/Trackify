@@ -1,6 +1,6 @@
-import datetime
 from requests_html import HTMLSession
 from Product import Product
+from Time import get_time
 import re
 
 
@@ -15,7 +15,7 @@ class FlipkartScraper:
         price = res.html.find('div._30jeq3._16Jk6d', first=True)
         url = url
         imageurl = res.html.find('._396cs4._2amPTt._3qGmMb', first=True)
-        time = datetime.datetime.now().strftime("%H:%M:%S, %d %B %Y - %A")
+        time = get_time()
 
         return Product(name.text, self.parse_price(price.text), url, "https:"+imageurl.attrs.get('src'), time, self.website)
 
