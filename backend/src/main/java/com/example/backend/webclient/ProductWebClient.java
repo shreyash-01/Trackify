@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,19 +15,20 @@ import org.springframework.web.client.RestTemplate;
 public class ProductWebClient {
 
     private ProductRepository productRepository;
+    private final RestTemplate restTemplate;
+
 
     @Autowired
     public ProductWebClient(ProductRepository productRepository) {
+        restTemplate = new RestTemplate();
         this.productRepository = productRepository;
     }
 
     public Product checkPriceScrape(String url, String website){
 
-        RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Data> request = new HttpEntity<>(new Data(url,website), headers);
-
         Product productResponse = restTemplate.postForObject("http://localhost:8000", request, Product.class);
 
         return productResponse;

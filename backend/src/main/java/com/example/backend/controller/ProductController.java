@@ -33,11 +33,11 @@ public class ProductController {
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
-    @PutMapping("/products")
-    public ResponseEntity<Product> updateProductController(@RequestBody Product product){
-        productService.updateProduct(product);
-        return new ResponseEntity<>(product, HttpStatus.OK);
-    }
+//    @PutMapping("/products")
+//    public ResponseEntity<Product> updateProductController(@RequestBody Product product){
+//        productService.updateProduct(product);
+//        return new ResponseEntity<>(product, HttpStatus.OK);
+//    }
 
     @PostMapping("/products")
     public ResponseEntity<Product> createProductController(@RequestBody Data data){

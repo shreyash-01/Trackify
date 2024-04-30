@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 import java.util.List;
 
@@ -31,8 +34,6 @@ public class ProductService {
     }
 
 
-
-
     public List<Product> getProducts(){
         return productRepository.findAll();
     }
@@ -50,31 +51,15 @@ public class ProductService {
         return productRepository.save(product) ;
     }
 
-    public void updateProduct(Product product){
-        sendEmailIfDecreased(product);
-    }
+    public Product sendEmailIfDecreased(Product product, int oldPrice, int newPrice) {
+
+        productWebClient.sendEmailPriceDrop(product);
+        product.setPrice(newPrice);
 
 
 
-    public Product sendEmailIfDecreased(Product product) {
-
-        Product current = productWebClient.checkPriceScrape(product.getURL(), product.getWebsite());
-        Product previous = product;
-
-        // Send Email if price is Decreased
-        if (previous.getPrice() > current.getPrice()) {
-            System.out.println("PRice decreased");
-            productWebClient.sendEmailPriceDrop(current);
-
-            previous.setPrice(current.getPrice());
-            previous.settime("aaxa");
-            productRepository.save(previous);
-
-            return current;
-        }
-
-        // Don't send email is price is same
-        return previous;
+        productRepository.save(product);
+        return product;
     }
 
     public void sendMail(Mail mailStructure){
