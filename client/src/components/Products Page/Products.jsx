@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 export default function Products(){
     const [error, setError] = useState('');
     const [data,setData]=useState([]);
-
+    const apiUrl=process.env.REACT_APP_URL;
     useEffect(() => {
         const fetchData = async () => {
             
-            
-            axios.get('http://localhost:8081/products')
+            const finalUrl=apiUrl+'/products';
+            // console.log(finalUrl)
+            axios.get(finalUrl)
             .then((response) => {
 
                 const json=response.data;
