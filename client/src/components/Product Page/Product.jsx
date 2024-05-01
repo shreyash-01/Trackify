@@ -9,7 +9,7 @@ export default function Product(){
 
     useEffect(() => {
         const fetchData = async () => {
-            const stringurl=process.env.REACT_APP_URL+data;
+            const stringurl=process.env.REACT_APP_URL+'/'+data;
             console.log(stringurl);
             axios.get(stringurl)
             .then((response) => {               
