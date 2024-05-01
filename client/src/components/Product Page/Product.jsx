@@ -43,7 +43,7 @@ export default function Product(){
 
 
     const handleClick=()=>{
-        axios.put('http://localhost:8081/products', responseData)
+        axios.put(process.env.REACT_APP_URL+'/products', responseData)
             .then((response) => {               
                 const json=response.data;
                 if (response.status === 200) {
