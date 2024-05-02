@@ -10,7 +10,7 @@ export default function Products(){
         const fetchData = async () => {
             
             
-            axios.get('http://localhost:8081/products')
+            axios.get('http://'+process.env.REACT_APP_IP+':8081/products')
             .then((response) => {
 
                 const json=response.data;

@@ -9,8 +9,7 @@ export default function Product(){
 
     useEffect(() => {
         const fetchData = async () => {
-            const stringurl='http://localhost:8081/products/'+data;
-            console.log(stringurl);
+            const stringurl='http://'+process.env.REACT_APP_IP+':8081/products/'+data;
             axios.get(stringurl)
             .then((response) => {               
                 const json=response.data;
@@ -43,7 +42,7 @@ export default function Product(){
 
 
     const handleClick=()=>{
-        axios.put('http://localhost:8081/products', responseData)
+        axios.put('http://3.81.235.13:8081/products', responseData)
             .then((response) => {               
                 const json=response.data;
                 if (response.status === 200) {

@@ -30,7 +30,7 @@ export default function Search(){
         const data=searchData;
         console.log(data);
         setSearchData({"url":'',"website":''});
-        axios.post('http://localhost:8081/products', data)
+        axios.post('http://'+process.env.REACT_APP_IP+':8081/products', data)
             .then((response) => {               
                 const json=response.data;
                 console.log(json)
