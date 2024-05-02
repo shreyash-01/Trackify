@@ -31,7 +31,7 @@ export default function Search(){
         console.log(data);
         const finalUrl=apiUrl+'/products'
         setSearchData({"url":'',"website":''});
-        axios.post(finalUrl, data)
+        axios.post('http://'+process.env.REACT_APP_IP+':8081/products', data)
             .then((response) => {               
                 const json=response.data;
                 console.log(json)

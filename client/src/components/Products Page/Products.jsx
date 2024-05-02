@@ -9,9 +9,8 @@ export default function Products(){
     useEffect(() => {
         const fetchData = async () => {
             
-            const finalUrl=apiUrl+'/products';
-            // console.log(finalUrl)
-            axios.get(finalUrl)
+            
+            axios.get('http://'+process.env.REACT_APP_IP+':8081/products')
             .then((response) => {
 
                 const json=response.data;
