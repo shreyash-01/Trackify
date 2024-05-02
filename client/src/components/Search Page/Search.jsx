@@ -5,7 +5,7 @@ import axios from "axios";
 
 import Nav from "../Nav/Nav"
 export default function Search(){
-    const apiUrl=process.env.REACT_APP_URL;
+    const apiUrl=process.env.REACT_APP_IP;
     const animationVariants = {
         initial: { x: '-4vw', opacity: 0 },
         animate: { x: 0, opacity:1, transition: { duration: 0.5 } },
@@ -29,9 +29,8 @@ export default function Search(){
     const handleClick=()=>{
         const data=searchData;
         console.log(data);
-        const finalUrl=apiUrl+'/products'
         setSearchData({"url":'',"website":''});
-        axios.post('http://'+process.env.REACT_APP_IP+':8081/products', data)
+        axios.post('http://'+apiUrl+':8081/products', data)
             .then((response) => {               
                 const json=response.data;
                 console.log(json)

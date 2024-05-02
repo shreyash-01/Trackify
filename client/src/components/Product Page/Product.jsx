@@ -6,10 +6,10 @@ export default function Product(){
     const { data } = useParams();
 
     const [responseData, setResponseData]=useState(null);
-
+    const apiUrl=process.env.REACT_APP_IP
     useEffect(() => {
         const fetchData = async () => {
-            const stringurl='http://'+process.env.REACT_APP_IP+':8081/products/'+data;
+            const stringurl='http://'+apiUrl+':8081/products/'+data;
             axios.get(stringurl)
             .then((response) => {               
                 const json=response.data;
