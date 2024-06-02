@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import {redirect, useNavigate, useParams} from "react-router-dom";
 import Nav from "../Nav/Nav";
 export default function Product(){
     const { data } = useParams();
 
+    let id="";
+
     const [responseData, setResponseData]=useState(null);
+    const navigate=useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,6 +18,7 @@ export default function Product(){
                 const json=response.data;
                 if (response.status === 200) {
                     console.log(json);
+                    id=json.id;
                     setResponseData(json);
     
                 }
@@ -42,12 +46,12 @@ export default function Product(){
 
 
     const handleClick=()=>{
-        axios.put('http://'+process.env.REACT_APP_IP+':8081/products', responseData)
+        axios.delete('http://'+process.env.REACT_APP_IP+':8081/products/', id)
             .then((response) => {               
-                const json=response.data;
+
                 if (response.status === 200) {
-                    console.log(json);
-                    setResponseData(json);
+                    console.log("Deleted");
+                    navigate(`/products`);
                 
                 }
                 else{
