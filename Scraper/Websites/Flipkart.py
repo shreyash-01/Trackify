@@ -11,7 +11,7 @@ class FlipkartScraper:
 
     def scrape(self, url: str) -> Product:
         res = self.session.get(url)
-        name = res.html.find('.B_NuCI', first=True)
+        name = res.html.find('.VU-ZEz', first=True)
         price = res.html.find('div._30jeq3._16Jk6d', first=True)
         url = url
         imageurl = res.html.find('._396cs4._2amPTt._3qGmMb', first=True)

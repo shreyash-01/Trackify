@@ -10,9 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import java.time.ZonedDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 
 import java.util.List;
 
@@ -52,12 +49,8 @@ public class ProductService {
     }
 
     public Product sendEmailIfDecreased(Product product, int oldPrice, int newPrice) {
-
-        productWebClient.sendEmailPriceDrop(product);
         product.setPrice(newPrice);
-
-
-
+        productWebClient.sendEmailPriceDrop(product);
         productRepository.save(product);
         return product;
     }

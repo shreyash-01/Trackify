@@ -29,7 +29,7 @@ public class ProductScheduler {
         this.productRepository = productRepository;
     }
 
-    @Scheduled(fixedRate = 1000000)    // 1 sec = 1000
+    @Scheduled(fixedRate = 10000)    // 1 sec = 1000
     public void scheduledTask(){
         try {
             List<Product> products = productService.getProducts();
@@ -41,12 +41,11 @@ public class ProductScheduler {
                 ZonedDateTime nowInIndia = ZonedDateTime.now(ZoneId.of("Asia/Kolkata"));
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                 String formattedNow = nowInIndia.format(formatter);
-
                 p.settime(formattedNow);
 
                 int newPrice = productWebClient.checkPriceScrape(p.getURL(), p.getWebsite()).getPrice();
                 if(newPrice!=p.getPrice()){
-                    System.out.print(" : Price Changed !!!!!!!!!");
+                    System.out.println(" : Price Changed !!!!!!!!!");
                     productService.sendEmailIfDecreased(p, p.getPrice(), newPrice);
                 } else {
                     System.out.print(" : Price same");

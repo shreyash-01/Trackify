@@ -23,7 +23,6 @@ export default function Search(){
             ...prevData,
             [name]: value
         }));
-        // console.log(searchData);
     };
 
     const handleClick=()=>{
@@ -35,28 +34,18 @@ export default function Search(){
                 const json=response.data;
                 console.log(json)
                 if (response.status === 200) {
-                    console.log(json);
-                    
                     setSuccessPopup(true);
                     const id=json.id;
-
                     navigate(`/products/${id}`);
-
                 }
                 else{
-                    // Handle errors here
                     console.error('Request failed');
-                    // setError(response.data.error)
-                    
-                }                
+                }
             })
                 
             .catch((error) => {
                 console.error(error.response.data.error);
-               
-                
             });
-
     }
     
     return (
@@ -73,13 +62,13 @@ export default function Search(){
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center h-[40vw]">
             <motion.div initial={{ scale: 0.92, opacity:0 }} animate={{ scale: 1, opacity:1 }} transition={{ type: "spring", duration: 0.7 }} className="bg-[#0d1a31] small:h-auto small:w-[75vw] small:p-6 h-[20vw] w-[50vw] flex flex-col items-center rounded-xl shadow-2xl justify-center">
                 <div className="flex ml-20"> 
-                <select id="company" className="h-[2.5vw] relative small:right-10 small:rounded-sm small:h-6 small:w-40 small:text-[3vw] w-[12vw] large:right-10 text-[1.2vw] rounded-lg cursor-pointer font-open-sans outline-none" name="website" value={searchData.website} onChange={handleChange}>
-                    <option value="">Select a website</option>
+                <select id="company" className="h-[2.5vw] relative small:right-10 small:rounded-sm small:h-6 small:w-40 small:text-[10vw] w-[14vw] h-[3vw] large:right-10 text-[1.2vw] rounded-[5px] cursor-pointer font-open-sans outline-none" name="website" value={searchData.website} onChange={handleChange}>
+                    <option value=""> Select a website</option>
                     <option value="nike" className="cursor-pointer">Nike</option>
                     <option value="puma" className="cursor-pointer">Puma</option>
                     <option value="snitch" className="cursor-pointer">Snitch</option>
                     <option value="nykaa" className="cursor-pointer">Nykaa</option>
-                    <option value="flipkart" className="cursor-pointer">Flipkart</option>
+                    {/*<option value="flipkart" className="cursor-pointer">Flipkart</option>*/}
                     <option value="h&m" className="cursor-pointer">H&M</option>
                 </select>
                 </div>
