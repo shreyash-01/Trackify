@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-<<<<<<< HEAD
 import {useNavigate, useParams} from "react-router-dom";
-=======
-import {redirect, useNavigate, useParams} from "react-router-dom";
->>>>>>> 86a46a8ebde2e831847e78d7c7634b5960a1ad72
+
 import Nav from "../Nav/Nav";
 export default function Product(){
     const { data } = useParams();
