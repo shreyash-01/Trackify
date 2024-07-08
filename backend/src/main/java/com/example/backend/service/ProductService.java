@@ -49,8 +49,18 @@ public class ProductService {
     }
 
     public Product sendEmailIfDecreased(Product product, int oldPrice, int newPrice) {
+<<<<<<< HEAD
         product.setPrice(newPrice);
         productWebClient.sendEmailPriceDrop(product);
+=======
+
+
+        product.setPrice(newPrice);
+        productWebClient.sendEmailPriceDrop(product);
+
+
+
+>>>>>>> 86a46a8ebde2e831847e78d7c7634b5960a1ad72
         productRepository.save(product);
         return product;
     }
