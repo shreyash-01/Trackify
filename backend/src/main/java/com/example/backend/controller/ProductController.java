@@ -33,10 +33,6 @@ public class ProductController {
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 86a46a8ebde2e831847e78d7c7634b5960a1ad72
     @PostMapping("/products")
     public ResponseEntity<Product> createProductController(@RequestBody Data data){
         Product product = productService.createProduct(data);
