@@ -13,7 +13,7 @@ class HMScraper:
     def scrape(self, url: str) -> Product:
         res = self.session.get(url)
         name = res.html.find('h1', first=True)
-        price = res.html.find('.price-value', first=True)
+        price = res.html.find('.edbe20.ac3d9e.d9ca8b.e29fbf', first=True)
         url = url
         imageurl = res.html.find('img')
         time = get_time()

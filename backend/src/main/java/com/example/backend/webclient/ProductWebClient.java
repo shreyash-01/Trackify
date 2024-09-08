@@ -29,7 +29,7 @@ public class ProductWebClient {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Data> request = new HttpEntity<>(new Data(url,website), headers);
-        Product productResponse = restTemplate.postForObject("http://localhost:8000", request, Product.class);
+        Product productResponse = restTemplate.postForObject("http://localhost:8083", request, Product.class);
 
         return productResponse;
     }
