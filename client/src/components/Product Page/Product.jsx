@@ -13,7 +13,7 @@ export default function Product(){
 
     useEffect(() => {
         const fetchData = async () => {
-            const stringurl='http://'+process.env.REACT_APP_IP+':8081/products/'+data;
+            const stringurl='http://localhost:8081/products/'+data;
             axios.get(stringurl)
             .then((response) => {               
                 const json=response.data;
@@ -47,23 +47,14 @@ export default function Product(){
 
 
     const handleClick=()=>{
-<<<<<<< HEAD
-        axios.delete('http://'+process.env.REACT_APP_IP+`:8081/products/`+responseData.id)
-=======
-        axios.delete('http://'+process.env.REACT_APP_IP+':8081/products/', id)
->>>>>>> 86a46a8ebde2e831847e78d7c7634b5960a1ad72
-            .then((response) => {               
+        axios.delete('http://localhost:8081/products/'+responseData.id)
+
+            .then((response) => {
 
                 if (response.status === 200) {
-<<<<<<< HEAD
                     navigate(`/products`);
 
 
-=======
-                    console.log("Deleted");
-                    navigate(`/products`);
-                
->>>>>>> 86a46a8ebde2e831847e78d7c7634b5960a1ad72
                 }
                 else{
                     // Handle errors here
